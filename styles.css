@@ -88,14 +88,10 @@ input,select,textarea,button{font-family:inherit}
   padding:14px 0;box-shadow:0 1px 20px rgba(0,0,0,.06);
 }
 .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;transition:all .3s}
+.nav-logo{display:flex;align-items:center;transition:all .35s var(--ease);height:0;overflow:hidden;opacity:0}
+.navbar.scrolled .nav-logo{height:auto;overflow:visible;opacity:1}
 .logo-img{
   height:120px;width:auto;transition:all .35s var(--ease);
-  filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,.3));
-  opacity:0;transform:translateY(-10px);pointer-events:none;
-}
-.navbar.scrolled .logo-img{
-  opacity:1;transform:translateY(0);pointer-events:auto;
   filter:contrast(1.1) drop-shadow(0 1px 4px rgba(0,0,0,.1));
 }
 
