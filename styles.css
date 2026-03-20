@@ -62,16 +62,25 @@ input,select,textarea,button{font-family:inherit}
 /* --- Preloader --- */
 .preloader{
   position:fixed;inset:0;z-index:9999;background:var(--dark);
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .6s var(--ease);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  transition:opacity .8s var(--ease);
 }
 .preloader.done{opacity:0;pointer-events:none}
 .preloader-inner{display:flex;flex-direction:column;align-items:center}
 .preloader-logo{
-  height:160px;width:auto;margin-bottom:32px;
+  height:clamp(260px,42vw,520px);width:auto;max-width:85vw;
   filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 4px 20px rgba(0,0,0,.4));
+  animation:preloaderZoom 1.4s var(--ease) forwards;
 }
-.preloader-bar{width:160px;height:2px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden}
+@keyframes preloaderZoom{
+  0%{opacity:0;transform:scale(.85)}
+  40%{opacity:1;transform:scale(1)}
+  100%{opacity:1;transform:scale(1)}
+}
+.preloader-bar{
+  width:200px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden;
+  margin-top:40px;
+}
 .preloader-progress{
   width:0;height:100%;background:var(--gold-l);
   animation:load 1.2s var(--ease) forwards;
@@ -141,23 +150,24 @@ input,select,textarea,button{font-family:inherit}
 }
 .hero-label{
   font-size:.7rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;
-  opacity:0;transform:translateY(20px);animation:up .8s .4s var(--ease) forwards;
+  opacity:0;transform:translateY(20px);animation:up .8s 1.8s var(--ease) forwards;
 }
 .hero-title{
   margin:16px 0;
-  opacity:0;transform:translateY(20px);animation:up .8s .6s var(--ease) forwards;
+  opacity:0;animation:heroLogoIn .6s 1.6s var(--ease) forwards;
 }
+@keyframes heroLogoIn{to{opacity:1}}
 .hero-logo-img{
   height:clamp(260px,42vw,520px);width:auto;max-width:90vw;margin:0 auto;
   filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 4px 30px rgba(0,0,0,.5));
 }
 .hero-text{
   font-size:1.05rem;font-weight:300;letter-spacing:2px;
-  opacity:0;transform:translateY(20px);animation:up .8s .8s var(--ease) forwards;
+  opacity:0;transform:translateY(20px);animation:up .8s 2s var(--ease) forwards;
 }
 .hero-buttons{
   display:flex;gap:16px;margin-top:36px;
-  opacity:0;transform:translateY(20px);animation:up .8s 1s var(--ease) forwards;
+  opacity:0;transform:translateY(20px);animation:up .8s 2.2s var(--ease) forwards;
 }
 
 @keyframes up{to{opacity:1;transform:translateY(0)}}
