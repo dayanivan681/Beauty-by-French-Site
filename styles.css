@@ -90,10 +90,14 @@ input,select,textarea,button{font-family:inherit}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;transition:all .3s}
 .logo-img{
-  height:300px;width:auto;transition:all .35s var(--ease);
+  height:120px;width:auto;transition:all .35s var(--ease);
   filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,.3));
+  opacity:0;transform:translateY(-10px);pointer-events:none;
 }
-.navbar.scrolled .logo-img{height:120px;filter:contrast(1.1) drop-shadow(0 1px 4px rgba(0,0,0,.1))}
+.navbar.scrolled .logo-img{
+  opacity:1;transform:translateY(0);pointer-events:auto;
+  filter:contrast(1.1) drop-shadow(0 1px 4px rgba(0,0,0,.1));
+}
 
 .nav-menu{display:flex;align-items:center;gap:28px}
 .nav-menu a{
@@ -386,7 +390,7 @@ input,select,textarea,button{font-family:inherit}
 
 @media(max-width:768px){
   .section{padding:72px 0}
-  .logo-img{height:200px}
+  .logo-img{height:100px}
   .navbar.scrolled .logo-img{height:100px}
   .preloader-logo{height:110px}
   .footer-logo-img{height:64px}
@@ -419,7 +423,7 @@ input,select,textarea,button{font-family:inherit}
 }
 
 @media(max-width:480px){
-  .logo-img{height:160px}
+  .logo-img{height:80px}
   .navbar.scrolled .logo-img{height:80px}
   .preloader-logo{height:100px}
   .footer-logo-img{height:56px}
