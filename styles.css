@@ -90,10 +90,10 @@ input,select,textarea,button{font-family:inherit}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;transition:all .3s}
 .logo-img{
-  height:150px;width:auto;transition:all .35s var(--ease);
+  height:300px;width:auto;transition:all .35s var(--ease);
   filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 2px 8px rgba(0,0,0,.3));
 }
-.navbar.scrolled .logo-img{height:135px;filter:contrast(1.1) drop-shadow(0 1px 4px rgba(0,0,0,.1))}
+.navbar.scrolled .logo-img{height:120px;filter:contrast(1.1) drop-shadow(0 1px 4px rgba(0,0,0,.1))}
 
 .nav-menu{display:flex;align-items:center;gap:28px}
 .nav-menu a{
@@ -386,8 +386,8 @@ input,select,textarea,button{font-family:inherit}
 
 @media(max-width:768px){
   .section{padding:72px 0}
-  .logo-img{height:120px}
-  .navbar.scrolled .logo-img{height:105px}
+  .logo-img{height:200px}
+  .navbar.scrolled .logo-img{height:100px}
   .preloader-logo{height:110px}
   .footer-logo-img{height:64px}
   .nav-toggle{display:flex}
@@ -419,8 +419,8 @@ input,select,textarea,button{font-family:inherit}
 }
 
 @media(max-width:480px){
-  .logo-img{height:105px}
-  .navbar.scrolled .logo-img{height:90px}
+  .logo-img{height:160px}
+  .navbar.scrolled .logo-img{height:80px}
   .preloader-logo{height:100px}
   .footer-logo-img{height:56px}
   .gallery-grid{grid-template-columns:1fr;grid-auto-rows:280px}
