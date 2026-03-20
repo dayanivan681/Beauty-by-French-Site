@@ -68,7 +68,7 @@ input,select,textarea,button{font-family:inherit}
 .preloader.done{opacity:0;pointer-events:none}
 .preloader-inner{display:flex;flex-direction:column;align-items:center}
 .preloader-logo{
-  height:clamp(260px,42vw,520px);width:auto;max-width:85vw;
+  height:clamp(260px,42vw,520px);width:auto;max-width:90vw;
   filter:brightness(0) invert(1) contrast(1.1) drop-shadow(0 4px 20px rgba(0,0,0,.4));
   animation:preloaderZoom 1.4s var(--ease) forwards;
 }
@@ -396,9 +396,8 @@ input,select,textarea,button{font-family:inherit}
 
 @media(max-width:768px){
   .section{padding:72px 0}
-  .logo-img{height:100px}
-  .navbar.scrolled .logo-img{height:100px}
-  .preloader-logo{height:110px}
+  .logo-img{height:80px}
+  .navbar.scrolled .logo-img{height:80px}
   .footer-logo-img{height:64px}
   .nav-toggle{display:flex}
   .nav-menu{
@@ -429,10 +428,9 @@ input,select,textarea,button{font-family:inherit}
 }
 
 @media(max-width:480px){
-  .logo-img{height:80px}
-  .navbar.scrolled .logo-img{height:80px}
-  .preloader-logo{height:100px}
-  .footer-logo-img{height:56px}
+  .logo-img{height:60px}
+  .navbar.scrolled .logo-img{height:60px}
+  .footer-logo-img{height:50px}
   .gallery-grid{grid-template-columns:1fr;grid-auto-rows:280px}
   .team-grid{grid-template-columns:1fr}
   .stats-row{flex-direction:column}
