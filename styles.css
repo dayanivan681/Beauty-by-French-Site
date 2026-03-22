@@ -395,6 +395,7 @@ input,select,textarea,button{font-family:inherit}
 }
 
 @media(max-width:768px){
+  #contact iframe{height:3800px}
   .section{padding:72px 0}
   .logo-img{height:80px}
   .navbar.scrolled .logo-img{height:80px}
@@ -428,6 +429,7 @@ input,select,textarea,button{font-family:inherit}
 }
 
 @media(max-width:480px){
+  #contact iframe{height:4200px}
   .logo-img{height:60px}
   .navbar.scrolled .logo-img{height:60px}
   .footer-logo-img{height:50px}
