@@ -274,7 +274,7 @@ input,select,textarea,button{font-family:inherit}
 .parallax-body p{font-size:1rem;font-weight:300;opacity:.85;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
 
 /* --- Team --- */
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;max-width:700px;margin:0 auto}
 .team-member{text-align:center}
 .team-photo{
   position:relative;overflow:hidden;border-radius:2px;
@@ -390,7 +390,7 @@ input,select,textarea,button{font-family:inherit}
   .about-layout{gap:48px}
   .services-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:220px}
-  .team-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:32px;max-width:600px}
   .footer-top{grid-template-columns:1fr 1fr}
 }
 
@@ -434,7 +434,7 @@ input,select,textarea,button{font-family:inherit}
   .navbar.scrolled .logo-img{height:60px}
   .footer-logo-img{height:50px}
   .gallery-grid{grid-template-columns:1fr;grid-auto-rows:280px}
-  .team-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr;max-width:320px}
   .stats-row{flex-direction:column}
   .parallax-cta{height:340px}
 }
