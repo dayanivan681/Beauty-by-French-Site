@@ -368,16 +368,20 @@ input,select,textarea,button{font-family:inherit}
 .nl-form input::placeholder{color:rgba(255,255,255,.4)}
 .footer-bottom{text-align:center;padding:20px 0;font-size:.78rem;color:rgba(255,255,255,.3)}
 
-/* --- WhatsApp Float --- */
-.whatsapp-float{
+/* --- Floating Social Buttons --- */
+.floating-socials{
   position:fixed;bottom:24px;right:24px;z-index:90;
+  display:flex;flex-direction:column;gap:12px;align-items:center;
+}
+.whatsapp-float,.instagram-float{
   width:56px;height:56px;border-radius:50%;
-  background:#25D366;color:var(--white);
+  color:var(--white);
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 16px rgba(37,211,102,.4);
   transition:transform .3s var(--ease);
 }
-.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float{background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.4)}
+.instagram-float{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);box-shadow:0 4px 16px rgba(225,48,108,.4)}
+.whatsapp-float:hover,.instagram-float:hover{transform:scale(1.1)}
 
 /* --- Scroll Animations --- */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
