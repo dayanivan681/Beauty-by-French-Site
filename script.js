@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll(
     '.svc-card, .gallery-item, .team-member, .review-card, ' +
     '.about-body, .about-imgs, .contact-left, .contact-form, ' +
-    '.parallax-body, .section-head, .stats-row, .info-item'
+    '.parallax-body, .section-head, .stats-row, .info-item, ' +
+    '.signature-layout, .signature-points article'
   );
   revealEls.forEach(el => el.classList.add('reveal'));
 
