@@ -3,109 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beauty by French | Salón de Belleza Premium</title>
-  <meta name="description" content="Beauty by French - Salón de belleza premium. Cortes, coloración, peinados y tratamientos capilares de la más alta calidad.">
+  <title>Beauty by French | Extensiones, Rizos y Transformaciones Capilares</title>
+  <meta name="description" content="Beauty by French - Especialistas en extensiones, rizos, color y tratamientos capilares personalizados en Puerto Rico.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/beauty-by-french-logo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <img src="assets/beauty-by-french-logo.png" alt="Beauty by French" class="preloader-logo">
+      <div class="preloader-bar"><div class="preloader-progress"></div></div>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">Beauty <span>by French</span></a>
+      <a href="#hero" class="nav-logo"><img src="assets/beauty-by-french-logo.png" alt="Beauty by French" class="logo-img"></a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="#about">Nosotros</a></li>
         <li><a href="#services">Servicios</a></li>
-        <li><a href="#portfolio">Portafolio</a></li>
-        <li><a href="#team">Estilistas</a></li>
-        <li><a href="#testimonials">Reseñas</a></li>
+        <li><a href="#gallery">Portafolio</a></li>
+        <li><a href="#team">Equipo</a></li>
+        <li><a href="#reviews">Reseñas</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li><a href="#contact" class="nav-btn">Reservar Cita</a></li>
+        <li><a href="#contact" class="nav-cta">Cotizar</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-slider">
-      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80')">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="hero-subtitle">Bienvenidos a</p>
-          <h1 class="hero-title">Beauty by French</h1>
-          <p class="hero-text">Donde el arte y la belleza se encuentran</p>
-          <a href="#services" class="btn btn-primary">Descubre Nuestros Servicios</a>
-        </div>
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active">
+        <img src="assets/portfolio/extensions-glam.jpg" alt="Extensiones Beauty by French" class="hero-bg">
       </div>
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=80')">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="hero-subtitle">Expertos en</p>
-          <h1 class="hero-title">Color & Estilo</h1>
-          <p class="hero-text">Balayage, mechas, tintes y técnicas de vanguardia</p>
-          <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
-        </div>
+      <div class="hero-slide">
+        <img src="assets/portfolio/curl-transformation.jpg" alt="Transformación de rizos Beauty by French" class="hero-bg">
       </div>
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1920&q=80')">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="hero-subtitle">Tu experiencia</p>
-          <h1 class="hero-title">Premium</h1>
-          <p class="hero-text">Tratamientos exclusivos para un cabello radiante</p>
-          <a href="#contact" class="btn btn-primary">Reservar Cita</a>
-        </div>
+      <div class="hero-slide">
+        <img src="assets/portfolio/black-extensions.jpg" alt="Extensiones largas Beauty by French" class="hero-bg">
       </div>
     </div>
-    <div class="hero-dots">
-      <button class="hero-dot active" data-slide="0"></button>
-      <button class="hero-dot" data-slide="1"></button>
-      <button class="hero-dot" data-slide="2"></button>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-label">Especialistas en extensiones y rizos</span>
+      <img src="assets/beauty-by-french-logo.png" alt="Beauty by French" class="hero-logo-img">
+      <h1 class="hero-headline">Extensiones, rizos y transformaciones capilares</h1>
+      <p class="hero-text">Resultados personalizados para un cabello que se ve espectacular y se siente saludable.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Cotizar Extensiones</a>
+        <a href="#gallery" class="btn btn-outline">Ver Transformaciones</a>
+      </div>
     </div>
-    <div class="hero-scroll">
-      <a href="#about">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </a>
+    <div class="hero-indicators">
+      <button class="indicator active" data-index="0"></button>
+      <button class="indicator" data-index="1"></button>
+      <button class="indicator" data-index="2"></button>
     </div>
-  </section>
+    <a href="#about" class="hero-arrow" aria-label="Scroll abajo">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </header>
 
-  <!-- About Section -->
-  <section class="section about" id="about">
+  <!-- Marquee Banner -->
+  <div class="marquee-banner">
+    <div class="marquee-track">
+      <span>Extensiones &nbsp;&bull;&nbsp; Rizos &nbsp;&bull;&nbsp; Color &nbsp;&bull;&nbsp; Tratamientos &nbsp;&bull;&nbsp; Antes y Despu&eacute;s &nbsp;&bull;&nbsp; Maquillaje &nbsp;&bull;&nbsp; Extensiones &nbsp;&bull;&nbsp; Rizos &nbsp;&bull;&nbsp; Color &nbsp;&bull;&nbsp; Tratamientos &nbsp;&bull;&nbsp; Antes y Despu&eacute;s &nbsp;&bull;&nbsp; Maquillaje &nbsp;&bull;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="section" id="about">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-images">
-          <div class="about-img-main">
-            <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600&q=80" alt="Interior del salón Beauty by French" loading="lazy">
+      <div class="about-layout">
+        <div class="about-imgs">
+          <div class="about-img-wrap img-1">
+            <img src="assets/portfolio/extensions-before-after.webp" alt="Antes y después con extensiones Beauty by French">
           </div>
-          <div class="about-img-secondary">
-            <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=400&q=80" alt="Estilista trabajando" loading="lazy">
+          <div class="about-img-wrap img-2">
+            <img src="assets/frances.jpg" alt="Frances, fundadora de Beauty by French">
           </div>
         </div>
-        <div class="about-content">
-          <p class="section-subtitle">Sobre Nosotros</p>
-          <h2 class="section-title">Un Espacio Donde la Belleza Cobra Vida</h2>
-          <div class="about-text">
-            <p>En <strong>Beauty by French</strong>, creemos que cada persona merece sentirse extraordinaria. Nuestro salón es un refugio de elegancia y creatividad, donde la pasión por la belleza se combina con las técnicas más innovadoras del mundo.</p>
-            <p>Fundado con la visión de ofrecer una experiencia de salón premium, nuestro equipo de estilistas altamente capacitados se dedica a transformar tu look y elevar tu confianza. Cada visita es una experiencia personalizada, diseñada para resaltar tu belleza única.</p>
-            <p>Utilizamos productos de la más alta calidad y estamos constantemente actualizándonos con las últimas tendencias internacionales para ofrecerte resultados excepcionales.</p>
-          </div>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-number">10+</span>
-              <span class="stat-label">Años de Experiencia</span>
+        <div class="about-body">
+          <span class="label">Sobre Beauty by French</span>
+          <h2 class="heading">T&eacute;cnica, transformaci&oacute;n y cuidado real de la hebra</h2>
+          <p>Beauty by French es una marca liderada por <strong>Frances M. Durand Sein</strong>, enfocada en extensiones, rizos, color y tratamientos personalizados para lograr resultados visibles sin perder de vista la salud del cabello.</p>
+          <p>Cada proceso comienza con una lectura honesta de tu hebra, textura, historial qu&iacute;mico y meta visual. La idea no es solo verte diferente; es que salgas con un cabello que puedas amar, cuidar y mantener.</p>
+          <div class="stats-row">
+            <div class="stat-box">
+              <strong>7+</strong>
+              <span>T&eacute;cnicas de Extensiones</span>
             </div>
-            <div class="stat">
-              <span class="stat-number">5K+</span>
-              <span class="stat-label">Clientes Felices</span>
+            <div class="stat-box">
+              <strong>530</strong>
+              <span>Trabajos Compartidos</span>
             </div>
-            <div class="stat">
-              <span class="stat-number">15+</span>
-              <span class="stat-label">Estilistas Expertos</span>
+            <div class="stat-box">
+              <strong>2.8K</strong>
+              <span>Comunidad en Instagram</span>
             </div>
           </div>
         </div>
@@ -113,353 +117,320 @@
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="section services" id="services">
+  <!-- Signature Method -->
+  <section class="section signature-section">
     <div class="container">
-      <div class="section-header">
-        <p class="section-subtitle">Nuestros Servicios</p>
-        <h2 class="section-title">Servicios Premium para Ti</h2>
-        <p class="section-desc">Ofrecemos una amplia gama de servicios de belleza capilar, realizados por estilistas expertos con productos de la más alta calidad.</p>
+      <div class="signature-layout">
+        <div>
+          <span class="label">M&eacute;todo Beauty by French</span>
+          <h2 class="heading">Extensiones pensadas para tu estilo de vida</h2>
+          <p class="subtext signature-text">No todas las extensiones se instalan igual. Evaluamos tu cabello, tu meta de largo o volumen y el mantenimiento que realmente puedes sostener.</p>
+        </div>
+        <div class="signature-points">
+          <article>
+            <span>01</span>
+            <h3>Evaluaci&oacute;n</h3>
+            <p>Foto actual, foto deseada, textura, historial qu&iacute;mico y condici&oacute;n de la hebra.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>T&eacute;cnica</h3>
+            <p>Selecci&oacute;n de largo, gramos y m&eacute;todo seg&uacute;n densidad, estilo y salud capilar.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Cuidado</h3>
+            <p>Gu&iacute;a de mantenimiento para que el resultado se mantenga pulido y natural.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Servicios</span>
+        <h2 class="heading">Especialidades para transformar tu cabello</h2>
+        <p class="subtext">Procesos personalizados para extensiones, rizos, color y recuperaci&oacute;n capilar.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M32 8c-8 0-16 8-16 20s8 28 16 28 16-16 16-28S40 8 32 8z"/><line x1="32" y1="8" x2="32" y2="56"/><path d="M16 28h32"/></svg>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/portfolio/black-extensions.jpg" alt="Extensiones premium">
+            <div class="svc-img-overlay"></div>
           </div>
-          <h3>Cortes de Cabello</h3>
-          <p>Cortes personalizados para mujer y hombre. Desde estilos clásicos hasta las tendencias más actuales.</p>
-          <span class="service-price">Desde $35</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="32" cy="20" r="12"/><path d="M20 32c-4 8-4 16 0 24h24c4-8 4-16 0-24"/><line x1="32" y1="8" x2="32" y2="4"/><line x1="44" y1="12" x2="48" y2="8"/><line x1="20" y1="12" x2="16" y2="8"/></svg>
+          <div class="svc-body">
+            <h3>Extensiones Premium</h3>
+            <p>Largo, volumen y movimiento con t&eacute;cnicas seleccionadas seg&uacute;n tu hebra, textura y meta visual.</p>
+            <span class="svc-price">Evaluaci&oacute;n requerida</span>
           </div>
-          <h3>Coloración</h3>
-          <p>Balayage, mechas, tintes completos, reflejos y técnicas de color de vanguardia para un look radiante.</p>
-          <span class="service-price">Desde $80</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 48c0-16 8-24 16-36 8 12 16 20 16 36"/><circle cx="32" cy="48" r="8"/></svg>
+        </article>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/portfolio/curl-transformation.jpg" alt="Rizos y transición rizada">
+            <div class="svc-img-overlay"></div>
           </div>
-          <h3>Tratamientos</h3>
-          <p>Keratina, botox capilar, hidratación profunda y tratamientos reparadores para un cabello sano y brillante.</p>
-          <span class="service-price">Desde $60</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 16c0 0 4 8 12 8s12-8 12-8"/><path d="M16 28c0 0 6 12 16 12s16-12 16-12"/><path d="M12 42c0 0 8 14 20 14s20-14 20-14"/></svg>
+          <div class="svc-body">
+            <h3>Rizos y Transici&oacute;n</h3>
+            <p>Cortes, definici&oacute;n y procesos para rizos que necesitan forma, control y cuidado real.</p>
+            <span class="svc-price">Seg&uacute;n diagn&oacute;stico</span>
           </div>
-          <h3>Peinados</h3>
-          <p>Peinados para eventos especiales, novias, quinceañeras y todo tipo de ocasiones memorables.</p>
-          <span class="service-price">Desde $50</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="12" y="20" width="40" height="32" rx="4"/><path d="M20 20V14a12 12 0 0124 0v6"/><circle cx="32" cy="38" r="4"/><line x1="32" y1="42" x2="32" y2="46"/></svg>
+        </article>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/portfolio/curly-color.jpg" alt="Color en cabello rizado">
+            <div class="svc-img-overlay"></div>
           </div>
-          <h3>Alisados</h3>
-          <p>Alisado japonés, progresivo y permanente. Resultados duraderos con tecnología de última generación.</p>
-          <span class="service-price">Desde $120</span>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M32 8L28 28h8L28 56l12-24h-8L40 8z"/></svg>
+          <div class="svc-body">
+            <h3>Color con Cuidado</h3>
+            <p>Cambios de tono, mechas y correcciones trabajando porosidad, resistencia y brillo.</p>
+            <span class="svc-price">Consulta previa</span>
           </div>
-          <h3>Extensiones</h3>
-          <p>Extensiones de cabello natural con técnicas de aplicación que garantizan un resultado invisible y duradero.</p>
-          <span class="service-price">Desde $200</span>
-        </div>
+        </article>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/portfolio/red-color-care.jpg" alt="Tratamientos capilares">
+            <div class="svc-img-overlay"></div>
+          </div>
+          <div class="svc-body">
+            <h3>Tratamientos Capilares</h3>
+            <p>Procesos para brillo, frizz, hidrataci&oacute;n y recuperaci&oacute;n de cabellos comprometidos.</p>
+            <span class="svc-price">Personalizado</span>
+          </div>
+        </article>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/portfolio/long-hair-transformation.webp" alt="Cortes y estilos">
+            <div class="svc-img-overlay"></div>
+          </div>
+          <div class="svc-body">
+            <h3>Cortes y Estilos</h3>
+            <p>Forma, movimiento y terminaciones pulidas para resaltar tu extensi&oacute;n, color o textura natural.</p>
+            <span class="svc-price">Por servicio</span>
+          </div>
+        </article>
+        <article class="svc-card">
+          <div class="svc-img">
+            <img src="assets/frances.jpg" alt="Maquillaje y eventos">
+            <div class="svc-img-overlay"></div>
+          </div>
+          <div class="svc-body">
+            <h3>Maquillaje y Eventos</h3>
+            <p>Looks para fotos, eventos y momentos especiales con acabado glam y femenino.</p>
+            <span class="svc-price">Por cita</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section class="section portfolio" id="portfolio">
+  <!-- Gallery / Portfolio -->
+  <section class="section" id="gallery">
     <div class="container">
-      <div class="section-header">
-        <p class="section-subtitle">Nuestro Trabajo</p>
-        <h2 class="section-title">Portafolio</h2>
-        <p class="section-desc">Cada transformación cuenta una historia. Descubre algunos de nuestros trabajos más destacados.</p>
+      <div class="section-head">
+        <span class="label">Trabajos Reales</span>
+        <h2 class="heading">Transformaciones Beauty by French</h2>
+        <p class="subtext">Una primera selecci&oacute;n de trabajos reales: extensiones, rizos, color y tratamientos.</p>
       </div>
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="color">Color</button>
-        <button class="filter-btn" data-filter="corte">Cortes</button>
-        <button class="filter-btn" data-filter="peinado">Peinados</button>
-        <button class="filter-btn" data-filter="tratamiento">Tratamientos</button>
+      <div class="gallery-filters">
+        <button class="gf-btn active" data-filter="all">Todos</button>
+        <button class="gf-btn" data-filter="extensiones">Extensiones</button>
+        <button class="gf-btn" data-filter="rizos">Rizos</button>
+        <button class="gf-btn" data-filter="color">Color</button>
+        <button class="gf-btn" data-filter="tratamientos">Tratamientos</button>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-item" data-category="color">
-          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=80" alt="Balayage rubio" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Balayage Dorado</h4>
-            <p>Coloración</p>
+      <div class="gallery-grid">
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item tall" data-cat="extensiones">
+          <img src="assets/portfolio/extensions-glam.jpg" alt="Extensiones largas Beauty by French">
+          <div class="gallery-cap">
+            <h4>Extensiones Glam</h4>
+            <span>Largo y volumen</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="corte">
-          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Corte bob moderno" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Bob Moderno</h4>
-            <p>Corte</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="rizos">
+          <img src="assets/portfolio/curly-transition.jpg" alt="Transición rizada Beauty by French">
+          <div class="gallery-cap">
+            <h4>Transici&oacute;n Rizada</h4>
+            <span>Rizos</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="peinado">
-          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=500&q=80" alt="Peinado de novia" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Peinado Nupcial</h4>
-            <p>Peinado</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="extensiones">
+          <img src="assets/portfolio/extensions-26in.jpg" alt="Extensiones 26 pulgadas Beauty by French">
+          <div class="gallery-cap">
+            <h4>26&quot; Personalizadas</h4>
+            <span>Extensiones</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="color">
-          <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&q=80" alt="Mechas caramelo" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Mechas Caramelo</h4>
-            <p>Coloración</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item tall" data-cat="color">
+          <img src="assets/portfolio/curly-color.jpg" alt="Color en cabello rizado Beauty by French">
+          <div class="gallery-cap">
+            <h4>Color en Rizada</h4>
+            <span>Color + cuidado</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="tratamiento">
-          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=500&q=80" alt="Tratamiento keratina" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Keratina Premium</h4>
-            <p>Tratamiento</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="extensiones">
+          <img src="assets/portfolio/extensions-before-after.webp" alt="Antes y después de extensiones Beauty by French">
+          <div class="gallery-cap">
+            <h4>Antes y Despu&eacute;s</h4>
+            <span>Extensiones</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="corte">
-          <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=500&q=80" alt="Corte layers" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Layers Modernos</h4>
-            <p>Corte</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="rizos">
+          <img src="assets/portfolio/curly-extensions.jpg" alt="Extensiones rizadas Beauty by French">
+          <div class="gallery-cap">
+            <h4>Extensiones Rizadas</h4>
+            <span>Textura</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="color">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&q=80" alt="Color fantasía" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Color Fantasía</h4>
-            <p>Coloración</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="color">
+          <img src="assets/portfolio/red-color-care.jpg" alt="Color rojo y cuidado capilar Beauty by French">
+          <div class="gallery-cap">
+            <h4>Color con Cuidado</h4>
+            <span>Proceso gradual</span>
           </div>
-        </div>
-        <div class="portfolio-item" data-category="peinado">
-          <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500&q=80" alt="Ondas glamour" loading="lazy">
-          <div class="portfolio-overlay">
-            <h4>Ondas Glamour</h4>
-            <p>Peinado</p>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item tall" data-cat="rizos">
+          <img src="assets/portfolio/curl-transformation.jpg" alt="Transformación de rizos Beauty by French">
+          <div class="gallery-cap">
+            <h4>Rizo por Rizo</h4>
+            <span>Transformaci&oacute;n</span>
           </div>
-        </div>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="extensiones">
+          <img src="assets/portfolio/black-extensions.jpg" alt="Extensiones negras largas Beauty by French">
+          <div class="gallery-cap">
+            <h4>Extensiones Negras</h4>
+            <span>L&iacute;nea Pink</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="gallery-item" data-cat="tratamientos">
+          <img src="assets/portfolio/treatment-promo.webp" alt="Tratamientos Beauty by French">
+          <div class="gallery-cap">
+            <h4>Tratamientos</h4>
+            <span>Brillo y frizz</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="section team" id="team">
+  <!-- Parallax CTA -->
+  <section class="parallax-cta">
+    <img src="assets/portfolio/long-hair-transformation.webp" alt="" class="parallax-bg" aria-hidden="true">
+    <div class="parallax-overlay"></div>
+    <div class="parallax-body">
+      <span class="label label-light">Cotiza tu proceso</span>
+      <h2>Lista para verte con el cabello que tienes en mente?</h2>
+      <p>Env&iacute;anos tu foto actual, foto de inspiraci&oacute;n y meta de largo o textura para orientarte mejor.</p>
+      <a href="#contact" class="btn">Agenda tu Evaluaci&oacute;n</a>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section-alt" id="team">
     <div class="container">
-      <div class="section-header">
-        <p class="section-subtitle">Nuestro Equipo</p>
-        <h2 class="section-title">Estilistas Expertos</h2>
-        <p class="section-desc">Un equipo de profesionales apasionados, dedicados a hacer realidad tu visión de belleza.</p>
+      <div class="section-head">
+        <span class="label">Nuestro Equipo</span>
+        <h2 class="heading">Expertas en extensiones y rizos</h2>
+        <p class="subtext">Especialistas en extensiones, rizos y procesos pensados para cuidar tu hebra.</p>
       </div>
       <div class="team-grid">
-        <div class="team-card">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80" alt="French - Directora Creativa" loading="lazy">
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="assets/frances.jpg" alt="Frances - Directora Creativa & Fundadora">
+            <div class="team-social">
+              <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+              </a>
+            </div>
           </div>
-          <div class="team-info">
-            <h3>French</h3>
-            <p class="team-role">Directora Creativa & Fundadora</p>
-            <p class="team-desc">Con más de 10 años de experiencia, French es especialista en coloración y técnicas de vanguardia.</p>
-          </div>
+          <h3>Frances</h3>
+          <span class="team-title">Directora Creativa & Fundadora</span>
         </div>
-        <div class="team-card">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Valentina - Estilista Senior" loading="lazy">
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="assets/dayna.png" alt="Dayna">
+            <div class="team-social">
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+              </a>
+            </div>
           </div>
-          <div class="team-info">
-            <h3>Valentina</h3>
-            <p class="team-role">Estilista Senior</p>
-            <p class="team-desc">Experta en balayage y técnicas de color. Su creatividad transforma cada cabello en una obra de arte.</p>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Camila - Especialista en Tratamientos" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h3>Camila</h3>
-            <p class="team-role">Especialista en Tratamientos</p>
-            <p class="team-desc">Dedicada a la salud capilar, Camila domina los tratamientos más avanzados para restaurar y embellecer tu cabello.</p>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Isabella - Estilista de Novias" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h3>Isabella</h3>
-            <p class="team-role">Estilista de Novias</p>
-            <p class="team-desc">Especialista en peinados nupciales y de evento. Hace que cada novia luzca espectacular en su gran día.</p>
-          </div>
+          <h3>Dayna</h3>
+          <span class="team-title">Especialista en Rizos</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="section testimonials" id="testimonials">
+  <!-- Reviews / Testimonials -->
+  <section class="section" id="reviews">
     <div class="container">
-      <div class="section-header">
-        <p class="section-subtitle">Testimonios</p>
-        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <div class="section-head">
+        <span class="label">Testimonios</span>
+        <h2 class="heading">Lo Que Dicen Nuestros Clientes</h2>
       </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-          </div>
-          <p class="testimonial-text">"El mejor salón al que he ido. French tiene un talento increíble para el color. Mi balayage quedó exactamente como lo soñé. El ambiente es hermoso y el servicio es impecable."</p>
-          <div class="testimonial-author">
-            <strong>María González</strong>
-            <span>Cliente desde 2020</span>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-          </div>
-          <p class="testimonial-text">"Llegué con el cabello muy maltratado y después del tratamiento de keratina quedó como nuevo. Las chicas son super profesionales y te hacen sentir como en casa. 100% recomendado."</p>
-          <div class="testimonial-author">
-            <strong>Ana Rodríguez</strong>
-            <span>Cliente desde 2021</span>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 6.56H19l-5.3 4.03L15.8 19 10 15.27 4.2 19l2.1-7.41L1 7.56h6.61z"/></svg>
-          </div>
-          <p class="testimonial-text">"Me hicieron el peinado para mi boda y quedé espectacular. Isabella es una artista. Todas mis invitadas me preguntaron dónde me había peinado. Sin duda volveré siempre."</p>
-          <div class="testimonial-author">
-            <strong>Laura Martínez</strong>
-            <span>Cliente desde 2022</span>
-          </div>
-        </div>
+      <div class="reviews-grid">
+        <blockquote class="review-card">
+          <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Ese pelo aguant&oacute; de todo durante toda la competencia: hairspray, calor, peinados, lacia, ondulada... excelente calidad y a&uacute;n lo tengo."</p>
+          <footer>
+            <strong>Giselle Annette</strong>
+            <cite>Miss Mundo Bayam&oacute;n</cite>
+          </footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Con esta chica vamos poco a poco: trabajamos porosidad, tonos y extensiones sin lastimar la hebra. Ese es el tipo de proceso que define Beauty by French."</p>
+          <footer>
+            <strong>Proceso Personalizado</strong>
+            <cite>Color + extensiones</cite>
+          </footer>
+        </blockquote>
+        <blockquote class="review-card">
+          <div class="review-stars" aria-label="5 estrellas">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Pasar por una transici&oacute;n de rizos en las manos correctas nunca se hab&iacute;a visto tan bien. Extensiones rizadas, textura y cuidado en un mismo resultado."</p>
+          <footer>
+            <strong>Rizos y Transici&oacute;n</strong>
+            <cite>Trabajo colaborativo</cite>
+          </footer>
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80')"></div>
-    <div class="cta-overlay"></div>
+  <!-- Info Bar -->
+  <div class="info-bar">
     <div class="container">
-      <div class="cta-content">
-        <h2>Tu Transformación Te Espera</h2>
-        <p>Agenda tu cita hoy y descubre por qué somos el salón favorito de cientos de clientes.</p>
-        <a href="#contact" class="btn btn-primary btn-lg">Reservar Ahora</a>
+      <div class="info-bar-grid">
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Ubicaci&oacute;n</strong><span>Manat&iacute;, Puerto Rico</span></div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div><strong>Evaluaci&oacute;n</strong><span>Extensiones, rizos y color por consulta</span></div>
+        </div>
+        <div class="info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.44 2.58.97 2.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.38 1.86.64 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <div><strong>WhatsApp</strong><span>(787) 345-6218</span></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact Section -->
-  <section class="section contact" id="contact">
+  <!-- Contact -->
+  <section class="section section-alt" id="contact">
     <div class="container">
-      <div class="section-header">
-        <p class="section-subtitle">Contáctanos</p>
-        <h2 class="section-title">Reserva Tu Cita</h2>
-        <p class="section-desc">Estamos aquí para ti. Contáctanos para agendar tu cita o resolver cualquier duda.</p>
+      <div class="section-head">
+        <span class="label">Cotiza tu transformaci&oacute;n</span>
+        <h2 class="heading">Agenda tu evaluaci&oacute;n</h2>
+        <p class="subtext">Para extensiones, incluye foto actual, foto de inspiraci&oacute;n, largo deseado, textura e historial qu&iacute;mico.</p>
       </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <h4>Ubicación</h4>
-              <p>Calle Principal #123<br>Centro Comercial Plaza Bella, Local 45<br>Ciudad, Estado</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div>
-              <h4>Teléfono</h4>
-              <p>(555) 123-4567</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p>info@beautybyfrench.com</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </div>
-            <div>
-              <h4>Horario</h4>
-              <p>Lunes a Sábado: 9:00 AM - 8:00 PM<br>Domingo: 10:00 AM - 6:00 PM</p>
-            </div>
-          </div>
-          <div class="contact-social">
-            <a href="#" aria-label="Instagram" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="#" aria-label="Facebook" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-            </a>
-            <a href="#" aria-label="WhatsApp" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok" class="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
-            </a>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Tu nombre completo" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <input type="email" id="email" placeholder="Tu email" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" id="phone" placeholder="Tu teléfono" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <select id="service" required>
-              <option value="" disabled selected>Selecciona un servicio</option>
-              <option value="corte">Corte de Cabello</option>
-              <option value="color">Coloración</option>
-              <option value="tratamiento">Tratamiento</option>
-              <option value="peinado">Peinado</option>
-              <option value="alisado">Alisado</option>
-              <option value="extensiones">Extensiones</option>
-              <option value="otro">Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea id="message" rows="4" placeholder="Cuéntanos sobre lo que buscas..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
-        </form>
+      <div style="width:100%;display:flex;justify-content:center;padding:0 16px;box-sizing:border-box;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDvfp6B3lvh4lHpOgDO9pJqSHRioKPH8WqyUClvwrJzf5xcA/viewform?embedded=true" width="100%" height="3200" frameborder="0" marginheight="0" marginwidth="0" style="max-width:720px;border:none;border-radius:12px;min-height:600px;">Cargando…</iframe>
       </div>
     </div>
   </section>
@@ -467,37 +438,37 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#hero" class="footer-logo">Beauty <span>by French</span></a>
-          <p>Donde el arte y la belleza se encuentran. Tu salón de confianza para lucir espectacular todos los días.</p>
+      <div class="footer-top">
+        <div class="footer-col footer-brand">
+          <a href="#hero" class="footer-logo"><img src="assets/beauty-by-french-logo.png" alt="Beauty by French" class="footer-logo-img"></a>
+          <p>Extensiones, rizos, color y tratamientos personalizados para transformar tu cabello con t&eacute;cnica y cuidado.</p>
         </div>
-        <div class="footer-links">
+        <div class="footer-col">
           <h4>Enlaces</h4>
           <ul>
             <li><a href="#about">Nosotros</a></li>
             <li><a href="#services">Servicios</a></li>
-            <li><a href="#portfolio">Portafolio</a></li>
-            <li><a href="#team">Estilistas</a></li>
+            <li><a href="#gallery">Portafolio</a></li>
+            <li><a href="#team">Equipo</a></li>
             <li><a href="#contact">Contacto</a></li>
           </ul>
         </div>
-        <div class="footer-links">
+        <div class="footer-col">
           <h4>Servicios</h4>
           <ul>
-            <li><a href="#services">Cortes</a></li>
-            <li><a href="#services">Coloración</a></li>
+            <li><a href="#services">Extensiones</a></li>
+            <li><a href="#services">Rizos</a></li>
+            <li><a href="#services">Color</a></li>
             <li><a href="#services">Tratamientos</a></li>
-            <li><a href="#services">Peinados</a></li>
-            <li><a href="#services">Alisados</a></li>
+            <li><a href="#services">Maquillaje</a></li>
           </ul>
         </div>
-        <div class="footer-newsletter">
+        <div class="footer-col">
           <h4>Newsletter</h4>
-          <p>Recibe ofertas exclusivas y tips de belleza.</p>
-          <form class="newsletter-form">
+          <p>Recibe disponibilidad, promociones y tips para cuidar tus extensiones.</p>
+          <form class="nl-form" onsubmit="return false">
             <input type="email" placeholder="Tu email">
-            <button type="submit" class="btn btn-primary">Suscribir</button>
+            <button type="submit" class="btn btn-sm">OK</button>
           </form>
         </div>
       </div>
@@ -506,6 +477,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating social buttons -->
+  <div class="floating-socials">
+    <a href="https://www.instagram.com/beautybyfrench/" target="_blank" rel="noopener noreferrer" class="instagram-float" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://wa.me/17873456218" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
 
   <script src="script.js"></script>
 </body>
