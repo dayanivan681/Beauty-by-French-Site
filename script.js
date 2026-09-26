@@ -4,21 +4,13 @@
 
 // --------------------------------------------
 // Datos del negocio — edita SOLO este bloque.
-// TODO: reemplazar con los datos reales del Instagram del salón.
 // --------------------------------------------
 const SITE = {
-  whatsapp: '17873456218',            // número con código de país, solo dígitos
+  whatsapp: '17873456218',   // número con código de país, solo dígitos
   phone: '+17873456218',
   phoneDisplay: '(787) 345-6218',
-  email: 'info@beautybyfrench.com',   // TODO
-  instagram: 'beautybyfrench',        // usuario sin @
-  tiktok: 'beautybyfrench',           // TODO: usuario sin @ (vacío = ocultar)
+  instagram: 'beautybyfrench', // usuario sin @
   linktree: 'beautybyfrench',
-  address: ['Calle Principal #123, Local 45', 'Ciudad, Estado'], // TODO
-  hours: [                            // TODO
-    ['Lunes – Sábado', '9:00 – 20:00'],
-    ['Domingo', '10:00 – 18:00'],
-  ],
 };
 
 const waLink = (text) =>
@@ -27,49 +19,27 @@ const waLink = (text) =>
 const LINKS = {
   whatsapp: waLink('Hola Beauty by French, me gustaría reservar una cita.'),
   instagram: `https://www.instagram.com/${SITE.instagram}/`,
-  tiktok: SITE.tiktok ? `https://www.tiktok.com/@${SITE.tiktok}` : '',
   linktree: `https://linktr.ee/${SITE.linktree}`,
-  maps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.address.join(', '))}`,
   phone: `tel:${SITE.phone}`,
-  email: `mailto:${SITE.email}`,
 };
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- Bind business data ---
   document.querySelectorAll('[data-site-href]').forEach(el => {
-    const href = LINKS[el.dataset.siteHref];
-    if (href) el.href = href;
-    else el.closest('li')?.remove();
+    el.href = LINKS[el.dataset.siteHref];
   });
 
   const TEXT = {
     phoneDisplay: SITE.phoneDisplay,
-    email: SITE.email,
     instagramHandle: `@${SITE.instagram}`,
   };
   document.querySelectorAll('[data-site-text]').forEach(el => {
-    const key = el.dataset.siteText;
-    if (key === 'address') {
-      el.replaceChildren(...SITE.address.flatMap((line, i) =>
-        i ? [document.createElement('br'), line] : [line]));
-    } else if (TEXT[key]) {
-      el.textContent = TEXT[key];
-    }
+    // Keep any icon inside the element; replace only the leading text
+    const text = TEXT[el.dataset.siteText];
+    if (el.firstChild?.nodeType === Node.TEXT_NODE) el.firstChild.textContent = text + (el.children.length ? ' ' : '');
+    else el.prepend(text);
   });
-
-  const hoursEl = document.querySelector('[data-site-hours]');
-  if (hoursEl) {
-    hoursEl.replaceChildren(...SITE.hours.map(([days, time]) => {
-      const row = document.createElement('div');
-      const dt = document.createElement('dt');
-      const dd = document.createElement('dd');
-      dt.textContent = days;
-      dd.textContent = time;
-      row.append(dt, dd);
-      return row;
-    }));
-  }
 
   // Service menu → WhatsApp with the service pre-filled
   document.querySelectorAll('[data-wa-service]').forEach(el => {
@@ -113,41 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.matchMedia('(min-width: 1081px)').addEventListener('change', (e) => {
     if (e.matches) setMenu(false);
   });
-
-  // --- Portfolio filter ---
-  const filters = document.querySelectorAll('.filter');
-  const items = document.querySelectorAll('.gallery-item');
-
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-      const f = btn.dataset.filter;
-      items.forEach(item => {
-        item.hidden = f !== 'all' && item.dataset.category !== f;
-      });
-    });
-  });
-
-  // --- Lightbox ---
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightboxImg');
-  const lbCap = document.getElementById('lightboxCap');
-
-  document.querySelectorAll('.gallery-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const img = btn.querySelector('img');
-      lbImg.src = btn.dataset.full || img.src;
-      lbImg.alt = img.alt;
-      lbCap.textContent = btn.querySelector('strong')?.textContent || '';
-      lightbox.showModal();
-    });
-  });
-
-  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.close());
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.close();
-  });
-  lightbox.addEventListener('close', () => { lbImg.src = ''; });
 
   // --- Reveal on scroll ---
   const reveals = document.querySelectorAll('.reveal');

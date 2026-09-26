@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0E0D0C">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  <!-- Open Graph / redes. TODO: reemplazar la imagen por una foto real del salón -->
+  <!-- Open Graph / redes -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Beauty by French — Salón de Belleza">
   <meta property="og:description" content="Color, corte, tratamientos y peinados. Reserva tu cita por WhatsApp.">
@@ -23,23 +23,13 @@
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- TODO: datos reales del negocio (dirección, teléfono, horario, Instagram) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HairSalon",
     "name": "Beauty by French",
-    "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80",
     "telephone": "+1-787-345-6218",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Calle Principal #123, Local 45",
-      "addressLocality": "Ciudad",
-      "addressRegion": "Estado"
-    },
-    "openingHours": ["Mo-Sa 09:00-20:00", "Su 10:00-18:00"],
-    "sameAs": ["https://www.instagram.com/beautybyfrench/", "https://linktr.ee/beautybyfrench"],
-    "priceRange": "$$"
+    "sameAs": ["https://www.instagram.com/beautybyfrench/", "https://linktr.ee/beautybyfrench"]
   }
   </script>
 </head>
@@ -48,11 +38,8 @@
   <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/><path d="M9 9.5c.3 2.2 2.3 4.3 4.6 4.8l1.2-1.1 1.7.8-.4 1.6c-3.6.3-7.4-3.4-7.3-7l1.6-.4.8 1.7z" stroke-width="1"/></symbol>
-    <symbol id="i-tiktok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
   </svg>
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -66,9 +53,8 @@
         <ul class="nav-list">
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#portafolio">Portafolio</a></li>
-          <li><a href="#equipo">Equipo</a></li>
-          <li><a href="#visitanos">Visítanos</a></li>
+          <li><a href="#reservar">Reservar</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
 
@@ -86,15 +72,14 @@
       <ul class="mobile-list">
         <li><a href="#nosotros"><span>01</span>Nosotros</a></li>
         <li><a href="#servicios"><span>02</span>Servicios</a></li>
-        <li><a href="#portafolio"><span>03</span>Portafolio</a></li>
-        <li><a href="#equipo"><span>04</span>Equipo</a></li>
-        <li><a href="#reservar"><span>06</span>Reservar</a></li>
-        <li><a href="#visitanos"><span>07</span>Visítanos</a></li>
+        <li><a href="#reservar"><span>03</span>Reservar</a></li>
+        <li><a href="#contacto"><span>04</span>Contacto</a></li>
       </ul>
     </nav>
     <div class="mobile-menu-foot">
       <a data-site-href="instagram" target="_blank" rel="noopener">Instagram</a>
       <a data-site-href="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+      <a data-site-href="linktree" target="_blank" rel="noopener">Linktree</a>
     </div>
   </div>
 
@@ -119,7 +104,7 @@
              srcset="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&q=80 700w,
                      https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=80 1400w"
              sizes="(max-width: 900px) 100vw, 55vw"
-             width="1400" height="1750" alt="Interior del salón Beauty by French" fetchpriority="high">
+             width="1400" height="1750" alt="Ambiente de salón de belleza" fetchpriority="high">
         <figcaption>Color · Corte · Cuidado</figcaption>
       </figure>
     </section>
@@ -127,8 +112,8 @@
     <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Balayage</span><span>Color</span><span>Cortes</span><span>Keratina</span><span>Peinados de novia</span><span>Extensiones</span><span>Alisados</span>
-        <span>Balayage</span><span>Color</span><span>Cortes</span><span>Keratina</span><span>Peinados de novia</span><span>Extensiones</span><span>Alisados</span>
+        <span>Color</span><span>Balayage</span><span>Cortes</span><span>Tratamientos</span><span>Peinados de evento</span>
+        <span>Color</span><span>Balayage</span><span>Cortes</span><span>Tratamientos</span><span>Peinados de evento</span>
       </div>
     </div>
 
@@ -142,24 +127,17 @@
         <div class="about-body reveal">
           <p class="about-lead">En Beauty by French cada cita empieza con una conversación. Escuchamos, miramos tu cabello y diseñamos un resultado que te represente.</p>
           <p>Trabajamos con productos profesionales de alta gama y técnicas actualizadas constantemente, para que tu color dure, tu corte crezca bien y tu cabello se sienta sano.</p>
-          <!-- TODO: confirmar cifras reales -->
-          <dl class="stats">
-            <div><dt>Años de experiencia</dt><dd>10+</dd></div>
-            <div><dt>Clientas atendidas</dt><dd>5K+</dd></div>
-            <div><dt>Especialistas</dt><dd>4</dd></div>
-          </dl>
         </div>
         <figure class="about-img about-img-a reveal">
-          <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=900&q=80" width="900" height="1125" loading="lazy" alt="Estación de trabajo del salón">
+          <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=900&q=80" width="900" height="1125" loading="lazy" alt="Estación de peinado">
         </figure>
         <figure class="about-img about-img-b reveal">
-          <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=80" width="600" height="750" loading="lazy" alt="Estilista trabajando el color de una clienta">
+          <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=80" width="600" height="750" loading="lazy" alt="Estilista aplicando color">
         </figure>
       </div>
     </section>
 
     <!-- Services -->
-    <!-- TODO: servicios y precios reales -->
     <section class="section services" id="servicios">
       <div class="container">
         <header class="section-head section-head-split">
@@ -167,211 +145,60 @@
             <p class="section-num">02 — Servicios</p>
             <h2 class="section-title">La <em>carta</em></h2>
           </div>
-          <p class="section-desc">Precios de referencia. El valor final depende del largo, la densidad y el diagnóstico en tu cita. Toca un servicio para reservarlo por WhatsApp.</p>
+          <p class="section-desc">El precio depende del largo, la densidad y el diagnóstico de tu cabello. Toca un servicio para consultarlo por WhatsApp.</p>
         </header>
 
         <div class="menu">
           <div class="menu-group reveal">
             <h3 class="menu-cat">Color</h3>
             <ul>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Balayage"><span class="menu-name">Balayage</span><span class="menu-dots"></span><span class="menu-price">desde $150</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Mechas / reflejos"><span class="menu-name">Mechas / reflejos</span><span class="menu-dots"></span><span class="menu-price">desde $110</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Tinte completo"><span class="menu-name">Tinte completo</span><span class="menu-dots"></span><span class="menu-price">desde $80</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Retoque de raíz"><span class="menu-name">Retoque de raíz</span><span class="menu-dots"></span><span class="menu-price">desde $60</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Balayage"><span class="menu-name">Balayage</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Mechas / reflejos"><span class="menu-name">Mechas / reflejos</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Tinte completo"><span class="menu-name">Tinte completo</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Retoque de raíz"><span class="menu-name">Retoque de raíz</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
             </ul>
           </div>
           <div class="menu-group reveal">
             <h3 class="menu-cat">Corte &amp; Estilo</h3>
             <ul>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Corte mujer"><span class="menu-name">Corte mujer</span><span class="menu-dots"></span><span class="menu-price">desde $45</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Corte hombre"><span class="menu-name">Corte hombre</span><span class="menu-dots"></span><span class="menu-price">desde $35</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Blowout / brushing"><span class="menu-name">Blowout / brushing</span><span class="menu-dots"></span><span class="menu-price">desde $40</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Peinado de evento"><span class="menu-name">Peinado de evento</span><span class="menu-dots"></span><span class="menu-price">desde $50</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Peinado de novia"><span class="menu-name">Peinado de novia</span><span class="menu-dots"></span><span class="menu-price">desde $120</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Corte"><span class="menu-name">Corte</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Blowout / brushing"><span class="menu-name">Blowout / brushing</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
             </ul>
           </div>
           <div class="menu-group reveal">
             <h3 class="menu-cat">Tratamientos</h3>
             <ul>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Keratina"><span class="menu-name">Keratina</span><span class="menu-dots"></span><span class="menu-price">desde $120</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Botox capilar"><span class="menu-name">Botox capilar</span><span class="menu-dots"></span><span class="menu-price">desde $90</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Hidratación profunda"><span class="menu-name">Hidratación profunda</span><span class="menu-dots"></span><span class="menu-price">desde $60</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Alisado"><span class="menu-name">Alisado japonés / progresivo</span><span class="menu-dots"></span><span class="menu-price">desde $120</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Keratina"><span class="menu-name">Keratina</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Hidratación profunda"><span class="menu-name">Hidratación profunda</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Tratamiento reparador"><span class="menu-name">Tratamiento reparador</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
             </ul>
           </div>
           <div class="menu-group reveal">
-            <h3 class="menu-cat">Extensiones</h3>
+            <h3 class="menu-cat">Peinados de evento</h3>
             <ul>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Extensiones (consulta)"><span class="menu-name">Consulta y prueba de color</span><span class="menu-dots"></span><span class="menu-price">sin costo</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Extensiones naturales"><span class="menu-name">Extensiones naturales</span><span class="menu-dots"></span><span class="menu-price">desde $200</span></a></li>
-              <li><a class="menu-item" href="#reservar" data-wa-service="Mantenimiento de extensiones"><span class="menu-name">Mantenimiento</span><span class="menu-dots"></span><span class="menu-price">desde $80</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Peinado de evento"><span class="menu-name">Peinado de evento</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
+              <li><a class="menu-item" href="#reservar" data-wa-service="Peinado de novia"><span class="menu-name">Peinado de novia</span><span class="menu-dots"></span><span class="menu-price">Consultar</span></a></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio -->
-    <!-- TODO: reemplazar por fotos reales de trabajos (ver images/README.md) -->
-    <section class="section portfolio" id="portafolio">
-      <div class="container">
-        <header class="section-head section-head-split">
-          <div>
-            <p class="section-num">03 — Portafolio</p>
-            <h2 class="section-title">Trabajo <em>reciente</em></h2>
-          </div>
-          <div class="filters" role="group" aria-label="Filtrar portafolio">
-            <button class="filter" aria-pressed="true" data-filter="all">Todo</button>
-            <button class="filter" aria-pressed="false" data-filter="color">Color</button>
-            <button class="filter" aria-pressed="false" data-filter="corte">Corte</button>
-            <button class="filter" aria-pressed="false" data-filter="peinado">Peinado</button>
-            <button class="filter" aria-pressed="false" data-filter="tratamiento">Tratamiento</button>
-          </div>
-        </header>
-
-        <ul class="gallery">
-          <li class="gallery-item tall" data-category="color">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=700&q=80" width="700" height="933" loading="lazy" alt="Balayage dorado en cabello largo">
-              <span class="gallery-cap"><strong>Balayage dorado</strong>Color</span>
-            </button>
-          </li>
-          <li class="gallery-item" data-category="corte">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" width="700" height="700" loading="lazy" alt="Corte bob moderno">
-              <span class="gallery-cap"><strong>Bob moderno</strong>Corte</span>
-            </button>
-          </li>
-          <li class="gallery-item" data-category="peinado">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=700&q=80" width="700" height="700" loading="lazy" alt="Peinado recogido de novia">
-              <span class="gallery-cap"><strong>Recogido nupcial</strong>Peinado</span>
-            </button>
-          </li>
-          <li class="gallery-item tall" data-category="color">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=700&q=80" width="700" height="933" loading="lazy" alt="Mechas color caramelo">
-              <span class="gallery-cap"><strong>Mechas caramelo</strong>Color</span>
-            </button>
-          </li>
-          <li class="gallery-item" data-category="tratamiento">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=700&q=80" width="700" height="700" loading="lazy" alt="Cabello liso y brillante tras tratamiento de keratina">
-              <span class="gallery-cap"><strong>Keratina</strong>Tratamiento</span>
-            </button>
-          </li>
-          <li class="gallery-item tall" data-category="corte">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=700&q=80" width="700" height="933" loading="lazy" alt="Corte en capas con movimiento">
-              <span class="gallery-cap"><strong>Capas con movimiento</strong>Corte</span>
-            </button>
-          </li>
-          <li class="gallery-item" data-category="color">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=700&q=80" width="700" height="700" loading="lazy" alt="Color fantasía">
-              <span class="gallery-cap"><strong>Color fantasía</strong>Color</span>
-            </button>
-          </li>
-          <li class="gallery-item" data-category="peinado">
-            <button class="gallery-btn" data-full="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=1400&q=80">
-              <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=700&q=80" width="700" height="700" loading="lazy" alt="Ondas glamour">
-              <span class="gallery-cap"><strong>Ondas glamour</strong>Peinado</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <!-- TODO: fotos y nombres reales del equipo -->
-    <section class="section team" id="equipo">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-num">04 — Equipo</p>
-          <h2 class="section-title">Las manos detrás del <em>resultado</em></h2>
-        </header>
-
-        <article class="founder reveal">
-          <figure class="founder-img">
-            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=900&q=80" width="900" height="1125" loading="lazy" alt="French, fundadora y directora creativa">
-          </figure>
-          <div class="founder-text">
-            <p class="eyebrow">Fundadora &amp; Directora creativa</p>
-            <h3 class="founder-name">French</h3>
-            <blockquote class="founder-quote">“El mejor color es el que parece que naciste con él.”</blockquote>
-            <p>Más de diez años especializada en colorimetría y técnicas de aclarado. French dirige cada diagnóstico y forma al equipo en las técnicas que usamos en el salón.</p>
-          </div>
-        </article>
-
-        <ul class="team-list">
-          <li class="member reveal">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80" width="500" height="625" loading="lazy" alt="Valentina, estilista senior">
-            <h3>Valentina</h3>
-            <p>Estilista senior · Balayage</p>
-          </li>
-          <li class="member reveal">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=80" width="500" height="625" loading="lazy" alt="Camila, especialista en tratamientos">
-            <h3>Camila</h3>
-            <p>Tratamientos · Salud capilar</p>
-          </li>
-          <li class="member reveal">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" width="500" height="625" loading="lazy" alt="Isabella, estilista de novias">
-            <h3>Isabella</h3>
-            <p>Novias · Peinados de evento</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <!-- TODO: reemplazar por reseñas reales (Google / Instagram) -->
-    <section class="section quotes" aria-labelledby="quotes-title">
-      <div class="container">
-        <header class="section-head">
-          <p class="section-num">05 — Reseñas</p>
-          <h2 class="section-title" id="quotes-title">Lo que dicen <em>ellas</em></h2>
-        </header>
-        <div class="quote-grid">
-          <figure class="quote reveal">
-            <blockquote>“Mi balayage quedó exactamente como lo soñé. El ambiente es hermoso y el servicio impecable.”</blockquote>
-            <figcaption>María G. <span>· Balayage</span></figcaption>
-          </figure>
-          <figure class="quote reveal">
-            <blockquote>“Llegué con el cabello maltratado y después de la keratina quedó como nuevo. Te hacen sentir en casa.”</blockquote>
-            <figcaption>Ana R. <span>· Keratina</span></figcaption>
-          </figure>
-          <figure class="quote reveal">
-            <blockquote>“Me peinaron para mi boda y todas mis invitadas preguntaron dónde. Volveré siempre.”</blockquote>
-            <figcaption>Laura M. <span>· Novia</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- Instagram strip -->
-    <!-- TODO: reemplazar por posts reales de Instagram -->
+    <!-- Instagram -->
     <section class="ig" aria-label="Instagram">
       <div class="container ig-head">
-        <p class="eyebrow">Síguenos</p>
-        <a class="ig-handle" data-site-href="instagram" data-site-text="instagramHandle" target="_blank" rel="noopener">@beautybyfrench</a>
+        <p class="eyebrow">Síguenos · trabajos recientes en Instagram</p>
+        <a class="ig-handle" data-site-href="instagram" data-site-text="instagramHandle" target="_blank" rel="noopener">@beautybyfrench <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <ul class="ig-grid">
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-        <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Ver en Instagram"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400&q=70" width="400" height="400" loading="lazy" alt=""></a></li>
-      </ul>
     </section>
 
     <!-- Booking -->
     <section class="section booking" id="reservar">
       <div class="container booking-grid">
         <header class="section-head">
-          <p class="section-num">06 — Reservar</p>
+          <p class="section-num">03 — Reservar</p>
           <h2 class="section-title">Tu próxima <em>cita</em></h2>
-          <p class="section-desc">Completa el formulario y se abrirá WhatsApp con tu mensaje listo. Te confirmamos disponibilidad en minutos durante el horario del salón.</p>
+          <p class="section-desc">Completa el formulario y se abrirá WhatsApp con tu mensaje listo. Te confirmamos disponibilidad lo antes posible.</p>
           <a class="btn btn-outline-light" data-site-href="whatsapp" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Escribir directo</a>
         </header>
 
@@ -385,12 +212,10 @@
             <select id="f-service" name="service" required>
               <option value="" selected disabled>Selecciona</option>
               <option>Color / Balayage</option>
-              <option>Corte</option>
+              <option>Corte / Blowout</option>
               <option>Tratamiento / Keratina</option>
-              <option>Peinado / Evento</option>
+              <option>Peinado de evento</option>
               <option>Novia</option>
-              <option>Alisado</option>
-              <option>Extensiones</option>
               <option>No estoy segura — quiero asesoría</option>
             </select>
           </div>
@@ -419,35 +244,25 @@
       </div>
     </section>
 
-    <!-- Visit -->
-    <!-- TODO: dirección, horario y contacto reales (se editan en script.js → SITE) -->
-    <section class="section visit" id="visitanos">
+    <!-- Contact -->
+    <section class="section visit" id="contacto">
       <div class="container visit-grid">
         <header class="section-head">
-          <p class="section-num">07 — Visítanos</p>
-          <h2 class="section-title">Te <em>esperamos</em></h2>
+          <p class="section-num">04 — Contacto</p>
+          <h2 class="section-title"><em>Hablemos</em></h2>
         </header>
         <div class="visit-col">
-          <h3 class="visit-label">Dirección</h3>
-          <p data-site-text="address">Calle Principal #123, Local 45<br>Ciudad, Estado</p>
-          <a class="link-underline" data-site-href="maps" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar</a>
-        </div>
-        <div class="visit-col">
-          <h3 class="visit-label">Horario</h3>
-          <dl class="hours" data-site-hours>
-            <div><dt>Lunes – Sábado</dt><dd>9:00 – 20:00</dd></div>
-            <div><dt>Domingo</dt><dd>10:00 – 18:00</dd></div>
-          </dl>
-        </div>
-        <div class="visit-col">
-          <h3 class="visit-label">Contacto</h3>
+          <h3 class="visit-label">Teléfono &amp; WhatsApp</h3>
           <p><a data-site-href="phone" data-site-text="phoneDisplay">(787) 345-6218</a></p>
-          <p><a data-site-href="email" data-site-text="email">info@beautybyfrench.com</a></p>
+          <a class="link-underline" data-site-href="whatsapp" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Escribir por WhatsApp</a>
+        </div>
+        <div class="visit-col">
+          <h3 class="visit-label">Redes</h3>
+          <p><a data-site-href="instagram" data-site-text="instagramHandle" target="_blank" rel="noopener">@beautybyfrench</a></p>
           <p><a data-site-href="linktree" target="_blank" rel="noopener">linktr.ee/beautybyfrench</a></p>
           <ul class="socials">
             <li><a data-site-href="instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
             <li><a data-site-href="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></a></li>
-            <li><a data-site-href="tiktok" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
           </ul>
         </div>
       </div>
@@ -463,8 +278,8 @@
         <nav aria-label="Pie de página">
           <ul class="footer-links">
             <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
             <li><a href="#reservar">Reservar</a></li>
+            <li><a href="#contacto">Contacto</a></li>
             <li><a data-site-href="instagram" target="_blank" rel="noopener">Instagram</a></li>
             <li><a data-site-href="linktree" target="_blank" rel="noopener">Linktree</a></li>
           </ul>
@@ -478,13 +293,6 @@
   <a class="wa-float" data-site-href="whatsapp" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
     <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
-
-  <!-- Lightbox -->
-  <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
-    <img id="lightboxImg" src="" alt="">
-    <p class="lightbox-cap" id="lightboxCap"></p>
-  </dialog>
 
   <script src="script.js"></script>
 </body>
