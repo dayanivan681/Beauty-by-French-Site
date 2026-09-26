@@ -1,142 +1,224 @@
 // ============================================
-// Beauty by French - Interactive Scripts
+// Beauty by French — Scripts
 // ============================================
+
+// --------------------------------------------
+// Datos del negocio — edita SOLO este bloque.
+// TODO: reemplazar con los datos reales del Instagram del salón.
+// --------------------------------------------
+const SITE = {
+  whatsapp: '15551234567',            // TODO: número con código de país, solo dígitos (ej. 5215512345678)
+  phone: '+15551234567',              // TODO
+  phoneDisplay: '(555) 123-4567',     // TODO
+  email: 'info@beautybyfrench.com',   // TODO
+  instagram: 'beautybyfrench',        // usuario sin @
+  tiktok: 'beautybyfrench',           // TODO: usuario sin @ (vacío = ocultar)
+  address: ['Calle Principal #123, Local 45', 'Ciudad, Estado'], // TODO
+  hours: [                            // TODO
+    ['Lunes – Sábado', '9:00 – 20:00'],
+    ['Domingo', '10:00 – 18:00'],
+  ],
+};
+
+const waLink = (text) =>
+  `https://wa.me/${SITE.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+
+const LINKS = {
+  whatsapp: waLink('Hola Beauty by French, me gustaría reservar una cita.'),
+  instagram: `https://www.instagram.com/${SITE.instagram}/`,
+  tiktok: SITE.tiktok ? `https://www.tiktok.com/@${SITE.tiktok}` : '',
+  maps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.address.join(', '))}`,
+  phone: `tel:${SITE.phone}`,
+  email: `mailto:${SITE.email}`,
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Navbar scroll effect ---
-  const navbar = document.getElementById('navbar');
-  const handleScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  // --- Bind business data ---
+  document.querySelectorAll('[data-site-href]').forEach(el => {
+    const href = LINKS[el.dataset.siteHref];
+    if (href) el.href = href;
+    else el.closest('li')?.remove();
+  });
+
+  const TEXT = {
+    phoneDisplay: SITE.phoneDisplay,
+    email: SITE.email,
+    instagramHandle: `@${SITE.instagram}`,
   };
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
-
-  // --- Mobile menu toggle ---
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
+  document.querySelectorAll('[data-site-text]').forEach(el => {
+    const key = el.dataset.siteText;
+    if (key === 'address') {
+      el.replaceChildren(...SITE.address.flatMap((line, i) =>
+        i ? [document.createElement('br'), line] : [line]));
+    } else if (TEXT[key]) {
+      el.textContent = TEXT[key];
+    }
   });
 
-  // Close menu when clicking a link
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      navToggle.classList.remove('active');
-    });
+  const hoursEl = document.querySelector('[data-site-hours]');
+  if (hoursEl) {
+    hoursEl.replaceChildren(...SITE.hours.map(([days, time]) => {
+      const row = document.createElement('div');
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+      dt.textContent = days;
+      dd.textContent = time;
+      row.append(dt, dd);
+      return row;
+    }));
+  }
+
+  // Service menu → WhatsApp with the service pre-filled
+  document.querySelectorAll('[data-wa-service]').forEach(el => {
+    el.href = waLink(`Hola Beauty by French, me gustaría reservar: ${el.dataset.waService}.`);
+    el.target = '_blank';
+    el.rel = 'noopener';
   });
 
-  // --- Hero slider ---
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  let currentSlide = 0;
-  let slideInterval;
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  function goToSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = index;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-  }
+  // --- Header border on scroll ---
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % slides.length);
-  }
+  // --- Mobile menu ---
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  const main = document.getElementById('main');
+  const footer = document.querySelector('.site-footer');
 
-  function startSlider() {
-    slideInterval = setInterval(nextSlide, 5000);
-  }
+  const setMenu = (open) => {
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    document.body.classList.toggle('menu-open', open);
+    main.inert = open;
+    footer.inert = open;
+    if (open) menu.querySelector('a').focus();
+  };
 
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      goToSlide(parseInt(dot.dataset.slide));
-      startSlider();
-    });
+  toggle.addEventListener('click', () => setMenu(menu.hidden));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu.hidden) {
+      setMenu(false);
+      toggle.focus();
+    }
   });
-
-  startSlider();
+  window.matchMedia('(min-width: 1081px)').addEventListener('change', (e) => {
+    if (e.matches) setMenu(false);
+  });
 
   // --- Portfolio filter ---
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const filters = document.querySelectorAll('.filter');
+  const items = document.querySelectorAll('.gallery-item');
 
-  filterBtns.forEach(btn => {
+  filters.forEach(btn => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.dataset.filter;
-
-      portfolioItems.forEach(item => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
+      filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      const f = btn.dataset.filter;
+      items.forEach(item => {
+        item.hidden = f !== 'all' && item.dataset.category !== f;
       });
     });
   });
 
-  // --- Scroll animations ---
-  const fadeElements = document.querySelectorAll(
-    '.service-card, .portfolio-item, .team-card, .testimonial-card, ' +
-    '.about-content, .about-images, .contact-info, .contact-form, ' +
-    '.cta-content, .section-header'
-  );
+  // --- Lightbox ---
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCap = document.getElementById('lightboxCap');
 
-  fadeElements.forEach(el => el.classList.add('fade-in'));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  fadeElements.forEach(el => observer.observe(el));
-
-  // --- Smooth scroll for anchor links ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        const offset = navbar.offsetHeight;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+  document.querySelectorAll('.gallery-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.querySelector('img');
+      lbImg.src = btn.dataset.full || img.src;
+      lbImg.alt = img.alt;
+      lbCap.textContent = btn.querySelector('strong')?.textContent || '';
+      lightbox.showModal();
     });
   });
 
-  // --- Contact form ---
-  const contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', (e) => {
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+  lightbox.addEventListener('close', () => { lbImg.src = ''; });
+
+  // --- Reveal on scroll ---
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('visible'));
+  }
+
+  // --- Booking form → WhatsApp ---
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+  const dateInput = document.getElementById('f-date');
+  dateInput.min = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD local
+
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
+    let firstInvalid = null;
+    form.querySelectorAll('[required]').forEach(field => {
+      const bad = !field.value.trim();
+      field.closest('.field').classList.toggle('invalid', bad);
+      field.setAttribute('aria-invalid', String(bad));
+      if (bad && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      status.textContent = 'Completa tu nombre y el servicio.';
+      firstInvalid.focus();
+      return;
+    }
 
-    // Simulate form submission
-    setTimeout(() => {
-      btn.textContent = 'Mensaje Enviado';
-      btn.style.backgroundColor = '#4CAF50';
-      contactForm.reset();
+    const data = new FormData(form);
+    const date = data.get('date')
+      ? new Date(`${data.get('date')}T12:00`).toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long' })
+      : '';
 
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.backgroundColor = '';
-        btn.disabled = false;
-      }, 3000);
-    }, 1500);
+    const note = data.get('note').trim();
+    const lines = [
+      'Hola Beauty by French, me gustaría reservar una cita.',
+      '',
+      `Nombre: ${data.get('name').trim()}`,
+      `Servicio: ${data.get('service')}`,
+      date ? `Fecha preferida: ${date}` : null,
+      data.get('time') ? `Horario: ${data.get('time')}` : null,
+      note ? `Nota: ${note}` : null,
+    ].filter(line => line !== null);
+
+    const url = waLink(lines.join('\n'));
+    const win = window.open(url, '_blank');
+    if (win) win.opener = null;
+
+    // Always offer a manual link in case the popup was blocked
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'toca aquí';
+    status.replaceChildren('Abriendo WhatsApp… Si no se abrió, ', a, '.');
   });
 
+  form.addEventListener('input', (e) => {
+    const field = e.target.closest('.field');
+    if (field?.classList.contains('invalid') && e.target.value.trim()) {
+      field.classList.remove('invalid');
+      e.target.setAttribute('aria-invalid', 'false');
+    }
+  });
 });
