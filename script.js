@@ -7,9 +7,9 @@
 // TODO: reemplazar con los datos reales del Instagram del salón.
 // --------------------------------------------
 const SITE = {
-  whatsapp: '15551234567',            // TODO: número con código de país, solo dígitos (ej. 5215512345678)
-  phone: '+15551234567',              // TODO
-  phoneDisplay: '(555) 123-4567',     // TODO
+  whatsapp: '17873456218',            // número con código de país, solo dígitos
+  phone: '+17873456218',
+  phoneDisplay: '(787) 345-6218',
   email: 'info@beautybyfrench.com',   // TODO
   instagram: 'beautybyfrench',        // usuario sin @
   tiktok: 'beautybyfrench',           // TODO: usuario sin @ (vacío = ocultar)
