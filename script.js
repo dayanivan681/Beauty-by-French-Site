@@ -125,6 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   lightbox.addEventListener('close', () => { lbImg.src = ''; });
 
+  // --- Hide floating buttons over the booking form and footer ---
+  const floats = document.getElementById('floats');
+  if ('IntersectionObserver' in window) {
+    const covering = new Set();
+    const floatObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.isIntersecting ? covering.add(e.target) : covering.delete(e.target));
+      floats.classList.toggle('is-hidden', covering.size > 0);
+    });
+    floatObserver.observe(document.querySelector('.form-embed'));
+    floatObserver.observe(footer);
+  }
+
   // --- Reveal on scroll ---
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
