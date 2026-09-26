@@ -17,11 +17,20 @@ const waLink = (text) =>
   `https://wa.me/${SITE.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
 
 const LINKS = {
-  whatsapp: waLink('Hola Beauty by French, me gustaría reservar una cita.'),
+  whatsapp: waLink('Hola Beauty by French, me gustaría cotizar una evaluación.'),
   instagram: `https://www.instagram.com/${SITE.instagram}/`,
   linktree: `https://linktr.ee/${SITE.linktree}`,
   phone: `tel:${SITE.phone}`,
 };
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// --- Preloader (hidden on load, capped so it never blocks) ---
+const preloader = document.getElementById('preloader');
+const hidePreloader = () => preloader?.classList.add('done');
+if (reduceMotion) hidePreloader();
+window.addEventListener('load', () => setTimeout(hidePreloader, 300));
+setTimeout(hidePreloader, 1500);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -35,15 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     instagramHandle: `@${SITE.instagram}`,
   };
   document.querySelectorAll('[data-site-text]').forEach(el => {
-    // Keep any icon inside the element; replace only the leading text
-    const text = TEXT[el.dataset.siteText];
-    if (el.firstChild?.nodeType === Node.TEXT_NODE) el.firstChild.textContent = text + (el.children.length ? ' ' : '');
-    else el.prepend(text);
+    el.textContent = TEXT[el.dataset.siteText];
   });
 
-  // Service menu → WhatsApp with the service pre-filled
+  // Service list → WhatsApp with the service pre-filled
   document.querySelectorAll('[data-wa-service]').forEach(el => {
-    el.href = waLink(`Hola Beauty by French, me gustaría reservar: ${el.dataset.waService}.`);
+    el.href = waLink(`Hola Beauty by French, me interesa: ${el.dataset.waService}. ¿Podemos coordinar una evaluación?`);
     el.target = '_blank';
     el.rel = 'noopener';
   });
@@ -84,6 +90,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.matches) setMenu(false);
   });
 
+  // --- Portfolio filter ---
+  const filters = document.querySelectorAll('.filter');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      const f = btn.dataset.filter;
+      items.forEach(item => {
+        item.hidden = f !== 'all' && !item.dataset.category.split(' ').includes(f);
+      });
+    });
+  });
+
+  // --- Lightbox ---
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCap = document.getElementById('lightboxCap');
+
+  document.querySelectorAll('.gallery-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.querySelector('img');
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbCap.textContent = btn.querySelector('strong')?.textContent || '';
+      lightbox.showModal();
+    });
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.close());
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+  lightbox.addEventListener('close', () => { lbImg.src = ''; });
+
   // --- Reveal on scroll ---
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -99,63 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     reveals.forEach(el => el.classList.add('visible'));
   }
-
-  // --- Booking form → WhatsApp ---
-  const form = document.getElementById('bookingForm');
-  const status = document.getElementById('formStatus');
-  const dateInput = document.getElementById('f-date');
-  dateInput.min = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD local
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    let firstInvalid = null;
-    form.querySelectorAll('[required]').forEach(field => {
-      const bad = !field.value.trim();
-      field.closest('.field').classList.toggle('invalid', bad);
-      field.setAttribute('aria-invalid', String(bad));
-      if (bad && !firstInvalid) firstInvalid = field;
-    });
-    if (firstInvalid) {
-      status.textContent = 'Completa tu nombre y el servicio.';
-      firstInvalid.focus();
-      return;
-    }
-
-    const data = new FormData(form);
-    const date = data.get('date')
-      ? new Date(`${data.get('date')}T12:00`).toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long' })
-      : '';
-
-    const note = data.get('note').trim();
-    const lines = [
-      'Hola Beauty by French, me gustaría reservar una cita.',
-      '',
-      `Nombre: ${data.get('name').trim()}`,
-      `Servicio: ${data.get('service')}`,
-      date ? `Fecha preferida: ${date}` : null,
-      data.get('time') ? `Horario: ${data.get('time')}` : null,
-      note ? `Nota: ${note}` : null,
-    ].filter(line => line !== null);
-
-    const url = waLink(lines.join('\n'));
-    const win = window.open(url, '_blank');
-    if (win) win.opener = null;
-
-    // Always offer a manual link in case the popup was blocked
-    const a = document.createElement('a');
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = 'toca aquí';
-    status.replaceChildren('Abriendo WhatsApp… Si no se abrió, ', a, '.');
-  });
-
-  form.addEventListener('input', (e) => {
-    const field = e.target.closest('.field');
-    if (field?.classList.contains('invalid') && e.target.value.trim()) {
-      field.classList.remove('invalid');
-      e.target.setAttribute('aria-invalid', 'false');
-    }
-  });
 });
