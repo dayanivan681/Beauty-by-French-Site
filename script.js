@@ -13,6 +13,7 @@ const SITE = {
   email: 'info@beautybyfrench.com',   // TODO
   instagram: 'beautybyfrench',        // usuario sin @
   tiktok: 'beautybyfrench',           // TODO: usuario sin @ (vacío = ocultar)
+  linktree: 'beautybyfrench',
   address: ['Calle Principal #123, Local 45', 'Ciudad, Estado'], // TODO
   hours: [                            // TODO
     ['Lunes – Sábado', '9:00 – 20:00'],
@@ -27,6 +28,7 @@ const LINKS = {
   whatsapp: waLink('Hola Beauty by French, me gustaría reservar una cita.'),
   instagram: `https://www.instagram.com/${SITE.instagram}/`,
   tiktok: SITE.tiktok ? `https://www.tiktok.com/@${SITE.tiktok}` : '',
+  linktree: `https://linktr.ee/${SITE.linktree}`,
   maps: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.address.join(', '))}`,
   phone: `tel:${SITE.phone}`,
   email: `mailto:${SITE.email}`,
