@@ -85,12 +85,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.toggle('menu-open', open);
     main.inert = open;
     footer.inert = open;
+    document.getElementById('bookBar').inert = open;
+    document.getElementById('floats').inert = open;
     if (open) menu.querySelector('a').focus();
   };
 
   toggle.addEventListener('click', () => setMenu(menu.hidden));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && !menu.hidden) {
+      const links = [...menu.querySelectorAll('a[href]')];
+      const controls = [toggle, ...links];
+      const index = controls.indexOf(document.activeElement);
+      e.preventDefault();
+      controls[(index + (e.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
+    }
     if (e.key === 'Escape' && !menu.hidden) {
       setMenu(false);
       toggle.focus();
@@ -166,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       visibleItems = items.filter(it => !it.hidden);
       show(visibleItems.indexOf(item));
       lightbox.showModal();
+      document.body.classList.add('lightbox-open');
     });
   });
 
@@ -179,7 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') show(current - 1);
     if (e.key === 'ArrowRight') show(current + 1);
   });
-  lightbox.addEventListener('close', () => { lbImg.src = ''; });
+  lightbox.addEventListener('close', () => {
+    lbImg.removeAttribute('src');
+    document.body.classList.remove('lightbox-open');
+  });
 
   let touchX = null;
   lbImg.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
