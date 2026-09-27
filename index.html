@@ -16,7 +16,7 @@
   <meta property="og:locale" content="es_PR">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preload" as="image" href="assets/portfolio/extensions-glam-960.webp" imagesrcset="assets/portfolio/extensions-glam-480.webp 480w, assets/portfolio/extensions-glam-960.webp 960w, assets/portfolio/extensions-glam.jpg 1080w" imagesizes="(max-width: 900px) 100vw, 55vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/portfolio/extensions-glam-960.webp" imagesrcset="assets/portfolio/extensions-glam-480.webp 480w, assets/portfolio/extensions-glam-960.webp 960w" imagesizes="100vw" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -105,16 +105,15 @@
     <!-- Hero -->
     <section class="hero" id="top">
       <figure class="hero-media">
-        <img src="assets/portfolio/extensions-glam-960.webp" srcset="assets/portfolio/extensions-glam-480.webp 480w, assets/portfolio/extensions-glam-960.webp 960w, assets/portfolio/extensions-glam.jpg 1080w" width="1080" height="1352" sizes="(max-width: 900px) 100vw, 55vw" alt="Clienta con extensiones largas y con volumen por Beauty by French" fetchpriority="high">
+        <img src="assets/portfolio/extensions-glam-960.webp" srcset="assets/portfolio/extensions-glam-480.webp 480w, assets/portfolio/extensions-glam-960.webp 960w" width="1080" height="1352" sizes="100vw" alt="Clienta con extensiones largas y con volumen por Beauty by French" fetchpriority="high">
       </figure>
       <div class="hero-text">
         <p class="eyebrow hero-kicker"><span>Especialistas en extensiones y rizos</span><span class="hero-loc">Manatí, Puerto Rico</span></p>
         <h1 class="hero-title">
-          <span class="line"><span>El cabello</span></span>
-          <span class="line"><span>que soñaste,</span></span>
-          <span class="line"><span><em>hoy.</em></span></span>
+          <span class="line"><span>Beauty</span></span>
+          <span class="line"><span><em>by French</em></span></span>
         </h1>
-        <p class="hero-lede">Extensiones, rizos y transformaciones personalizadas para un cabello que se ve espectacular y se siente saludable.</p>
+        <p class="hero-lede"><strong>El cabello que soñaste, hoy.</strong> Extensiones, rizos y transformaciones personalizadas para un cabello que se ve espectacular y se siente saludable.</p>
         <div class="hero-actions" id="heroActions">
           <a href="#reservar" class="btn btn-solid">Agendar evaluación <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a href="#transformaciones" class="link-underline">Ver transformaciones</a>
@@ -125,16 +124,15 @@
     <!-- Trust strip -->
     <section class="trust" aria-label="Beauty by French en números">
       <dl class="container trust-grid">
-        <div class="reveal"><dt>Trabajos compartidos</dt><dd><span data-count="530">530</span></dd></div>
-        <div class="reveal" style="--i:1"><dt>Comunidad en Instagram</dt><dd><span data-count="2.8" data-decimals="1">2.8</span>K</dd></div>
-        <div class="reveal" style="--i:2"><dt>Técnicas de extensiones</dt><dd><span data-count="7">7</span>+</dd></div>
+        <div><dt>Trabajos compartidos</dt><dd>530</dd></div>
+        <div><dt>Comunidad en Instagram</dt><dd>2.8K</dd></div>
+        <div><dt>Técnicas de extensiones</dt><dd>7+</dd></div>
       </dl>
     </section>
 
     <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Extensiones</span><span>Rizos</span><span>Color</span><span>Tratamientos</span><span>Antes y después</span><span>Maquillaje</span>
         <span>Extensiones</span><span>Rizos</span><span>Color</span><span>Tratamientos</span><span>Antes y después</span><span>Maquillaje</span>
       </div>
     </div>
@@ -163,7 +161,7 @@
             <img src="assets/portfolio/extensions-glam-960.webp" srcset="assets/portfolio/extensions-glam-480.webp 480w, assets/portfolio/extensions-glam-960.webp 960w, assets/portfolio/extensions-glam.jpg 1080w" width="1080" height="1352" sizes="(max-width: 900px) 78vw, 25vw" loading="lazy" alt="Extensiones largas con volumen">
             <span class="gallery-cap"><strong>Extensiones glam</strong>Largo y volumen</span>
           </button></li>
-          <li class="gallery-item" data-category="extensiones"><button class="gallery-btn">
+          <li class="gallery-item comparison" data-category="extensiones"><button class="gallery-btn">
             <img src="assets/portfolio/extensions-before-after-960.webp" srcset="assets/portfolio/extensions-before-after-480.webp 480w, assets/portfolio/extensions-before-after-960.webp 960w, assets/portfolio/extensions-before-after.webp 1440w" width="1440" height="1921" sizes="(max-width: 900px) 78vw, 25vw" loading="lazy" alt="Antes y después de extensiones">
             <span class="gallery-cap"><strong>Antes y después</strong>Extensiones</span>
           </button></li>
@@ -514,7 +512,7 @@
     <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
     <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Siguiente"><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
     <figure class="lightbox-fig">
-      <img id="lightboxImg" alt="">
+      <img id="lightboxImg" alt="" hidden>
       <figcaption class="lightbox-bar">
         <span><strong id="lightboxCap"></strong> <span class="lightbox-count" id="lightboxCount"></span></span>
         <a class="btn btn-champagne" id="lightboxCta" target="_blank" rel="noopener">Quiero este look</a>

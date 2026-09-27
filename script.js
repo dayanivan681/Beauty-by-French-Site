@@ -23,7 +23,6 @@ const LINKS = {
   phone: `tel:${SITE.phone}`,
 };
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasIO = 'IntersectionObserver' in window;
 
 const openInNewTab = (el) => {
@@ -136,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       items.forEach(item => {
         item.hidden = f !== 'all' && !item.dataset.category.split(' ').includes(f);
       });
-      gallery.scrollTo({ left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      gallery.scrollTo({ left: 0, behavior: 'auto' });
       updateProgress(gallery);
     });
   });
@@ -149,48 +148,94 @@ document.addEventListener('DOMContentLoaded', () => {
   const lbCta = document.getElementById('lightboxCta');
   let visibleItems = [];
   let current = 0;
+  let requested = 0;
+  let imageRequest = 0;
+  const imageLoads = new Map();
 
   const largestSrc = (img) => {
-    const last = (img.getAttribute('srcset') || '').split(',').pop().trim().split(' ')[0];
-    return last || img.src;
+    const sources = (img.getAttribute('srcset') || '').split(',').map(entry => {
+      const [src, size] = entry.trim().split(/\s+/);
+      return { src, width: parseInt(size, 10) || 0 };
+    });
+    return sources.find(source => source.width >= 960)?.src || sources.at(-1)?.src || img.src;
   };
 
-  const show = (i) => {
-    current = (i + visibleItems.length) % visibleItems.length;
-    const item = visibleItems[current];
+  const loadImage = (src) => {
+    if (!imageLoads.has(src)) {
+      const image = new Image();
+      image.src = src;
+      const load = image.decode ? image.decode() : new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = reject;
+      });
+      imageLoads.set(src, load.catch(error => {
+        imageLoads.delete(src);
+        throw error;
+      }));
+    }
+    return imageLoads.get(src);
+  };
+
+  const show = async (i) => {
+    const request = ++imageRequest;
+    const position = (i + visibleItems.length) % visibleItems.length;
+    requested = position;
+    const item = visibleItems[position];
     const img = item.querySelector('img');
     const name = item.querySelector('strong')?.textContent || '';
-    lbImg.src = largestSrc(img);
+    let src = largestSrc(img);
+    try {
+      await loadImage(src);
+    } catch {
+      src = img.currentSrc || img.src;
+      try {
+        await loadImage(src);
+      } catch {
+        if (request === imageRequest) {
+          requested = current;
+          if (!lbImg.hasAttribute('src')) lightbox.close();
+        }
+        return;
+      }
+    }
+    if (request !== imageRequest || !lightbox.open) return;
+    current = position;
+    lbImg.src = src;
     lbImg.alt = img.alt;
+    lbImg.hidden = false;
     lbImg.classList.remove('swap');
     void lbImg.offsetWidth;
     lbImg.classList.add('swap');
     lbCap.textContent = name;
     lbCount.textContent = `${current + 1} / ${visibleItems.length}`;
     lbCta.href = waLink(`Hola Beauty by French, vi el look "${name}" en su web y quiero cotizarlo.`);
+    const next = visibleItems[(current + 1) % visibleItems.length].querySelector('img');
+    loadImage(largestSrc(next)).catch(() => {});
   };
 
   items.forEach(item => {
     item.querySelector('.gallery-btn').addEventListener('click', () => {
       visibleItems = items.filter(it => !it.hidden);
-      show(visibleItems.indexOf(item));
       lightbox.showModal();
       document.body.classList.add('lightbox-open');
+      show(visibleItems.indexOf(item));
     });
   });
 
-  document.getElementById('lightboxPrev').addEventListener('click', () => show(current - 1));
-  document.getElementById('lightboxNext').addEventListener('click', () => show(current + 1));
+  document.getElementById('lightboxPrev').addEventListener('click', () => show(requested - 1));
+  document.getElementById('lightboxNext').addEventListener('click', () => show(requested + 1));
   document.getElementById('lightboxClose').addEventListener('click', () => lightbox.close());
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox || e.target.classList.contains('lightbox-fig')) lightbox.close();
   });
   lightbox.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(requested - 1);
+    if (e.key === 'ArrowRight') show(requested + 1);
   });
   lightbox.addEventListener('close', () => {
+    imageRequest++;
     lbImg.removeAttribute('src');
+    lbImg.hidden = true;
     document.body.classList.remove('lightbox-open');
   });
 
@@ -199,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
   lbImg.addEventListener('touchend', (e) => {
     if (touchX === null) return;
     const dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 50) show(requested + (dx < 0 ? 1 : -1));
     touchX = null;
   });
 
@@ -228,34 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
       update();
     });
     coverObserver.observe(document.querySelector('.form-embed'));
+    coverObserver.observe(document.querySelector('.team'));
     coverObserver.observe(footer);
   } else {
     bookBar.classList.add('show');
-  }
-
-  // --- Count-up numbers ---
-  const counters = document.querySelectorAll('[data-count]');
-  if (hasIO && !reduceMotion) {
-    const format = (el, v) => {
-      el.textContent = v.toFixed(Number(el.dataset.decimals || 0));
-    };
-    counters.forEach(el => format(el, 0));
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = Number(el.dataset.count);
-        const start = performance.now();
-        const tick = (now) => {
-          const t = Math.min(1, (now - start) / 1400);
-          format(el, target * (1 - Math.pow(1 - t, 3)));
-          if (t < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        countObserver.unobserve(el);
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(el => countObserver.observe(el));
   }
 
   // --- Reveal on scroll ---
