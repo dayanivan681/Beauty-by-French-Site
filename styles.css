@@ -285,6 +285,25 @@ body.menu-open .wordmark em { color: var(--champagne); }
   padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
 }
 
+.hero-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+.hero-loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+.hero-loc::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
 .hero-title {
   font-family: var(--serif);
   font-weight: 300;
@@ -893,6 +912,8 @@ html:not(.js) .preloader { display: none; }
 @media (max-width: 600px) {
   .header-cta { display: none; }
 
+  .hero-kicker { flex-direction: column; align-items: flex-start; letter-spacing: 0.16em; }
+
   .wordmark span { font-size: 1.3rem; }
   .wordmark img { height: 32px; }
 
@@ -903,6 +924,10 @@ html:not(.js) .preloader { display: none; }
   .footer-mark { white-space: normal; }
   .floats { right: 12px; bottom: 12px; }
   .float { width: 48px; height: 48px; }
+}
+
+@media (max-width: 360px) {
+  .hero-kicker { font-size: 0.66rem; letter-spacing: 0.1em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
